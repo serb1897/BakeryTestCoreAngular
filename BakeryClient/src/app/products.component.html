@@ -1,0 +1,93 @@
+<div class="product-title">Продукти</div>
+
+<div>
+    <div class="just-flex products-container">
+        <div>
+            <div class="product-label">Усі товари</div>
+            <ng-container *ngFor="let product of products">
+                <div class="just-flex product-item">
+                    <div class="product-info">
+                        <div class="name">{{product.name}}</div>
+                        <div class="category">{{product.categoryName}}</div>
+                        <div class="description">{{product.description}}</div>
+                    </div>
+                    <div class="product-price" *ngIf="product.isAvailable">
+                        <div class="amount">{{product.price}} грн</div>
+                        <div class="to-cart" (click)="AddToCart(product)">У кошик</div>
+                    </div>
+                    <div class="product-price" *ngIf="!product.isAvailable">
+                        <div class="no-available">Немає в наявності</div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>        
+        <div>
+            <div class="product-label">Кошик</div>
+            <ng-container *ngFor="let cartItem of cart">
+                <div class="just-flex product-item">
+                    <div class="product-info just-flex">
+                        <div class="name cart-name">{{cartItem.productName}}</div>
+                        <div class="just-flex cart-handler">
+                            <div class="plus-style" (click)="ChangeCartItemQuality(cartItem, false)">-</div>
+                            <div class="number-cart">{{cartItem.quantity}}</div>
+                            <div class="plus-style" (click)="ChangeCartItemQuality(cartItem, true)">+</div>
+                        </div>
+                    </div>
+                    <div class="product-price" style="width: 25%">
+                        <div class="amount">{{cartItem.itemCost * cartItem.quantity}} грн</div>
+                    </div>
+                    <div class="delete-item" (click)="DeleteCartItem(cartItem.productId)">
+                        X
+                    </div>
+                </div>
+            </ng-container>
+            
+            <div class="just-flex product-item" *ngIf="cart.length > 0">
+                <div class="product-info cart-total-cost-label">
+                    Загальна вартість:
+                </div>
+                <div class="product-price cart-total-cost">
+                    {{totalCost}} грн
+                </div>
+            </div>
+            <div *ngIf="cart.length > 0">
+                <button class="products-button" (click)="showClientForm = true">Замовити</button>
+            </div>
+
+            <div class="customer-form" *ngIf="showClientForm">
+                <form [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+                    <div class="product-label">Інформація про клієнта</div>
+                    <div class="just-flex">
+                        <label for="name" class="customer-form-label">Ім'я</label>
+                        <div><input id="name" formControlName="name" type="text" class="customer-form-input"></div>
+                        <div *ngIf="clientForm.get('name')?.invalid && clientForm.get('name')?.touched" class="required-style">
+                            <small *ngIf="clientForm.get('name')?.errors?.required">Введіть Ім'я</small>
+                            <small *ngIf="clientForm.get('name')?.errors?.minlength">Ім'я не може бути таким коротким</small>
+                        </div>
+                    </div>
+                    <div class="just-flex">
+                        <label for="phone" class="customer-form-label">Телефон</label>
+                        <div><input id="phone" formControlName="phone" type="text" mask="(000)000-00-00" class="customer-form-input"></div>
+                        <div *ngIf="clientForm.get('phone')?.invalid && clientForm.get('phone')?.touched" class="required-style">
+                            <small *ngIf="clientForm.get('phone')?.errors?.required">Введіть Телефон</small>
+                            <small *ngIf="clientForm.get('phone')?.errors?.pattern">Телефон не соже бути таким коротким</small>
+                        </div>
+                    </div>
+                    <div class="just-flex">
+                        <div for="deliveryAddress" class="customer-form-label">Адреса доставки</div>
+                        <div><input id="deliveryAddress" formControlName="deliveryAddress" type="text" class="customer-form-input"></div>
+                        <div *ngIf="clientForm.get('deliveryAddress')?.invalid && clientForm.get('deliveryAddress')?.touched" class="required-style">
+                            <small *ngIf="clientForm.get('deliveryAddress')?.errors?.required">Введіть адресу доставки</small>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit" [disabled]="clientForm.invalid" class="products-button">Створити</button>
+                    </div>
+                </form>
+            </div>
+        </div>        
+
+    </div>
+</div>
+
+<snack-bar [model]="snackBarModel"></snack-bar>

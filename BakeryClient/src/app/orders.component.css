@@ -1,0 +1,145 @@
+.order-title {
+    color: darkgreen;
+    text-align: center;
+    margin-top: 56px;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.just-flex {
+    display: flex;
+}
+
+._hide {
+    display: hide !important;
+}
+
+.order-table {
+    width: 92%;
+    margin: 4%;
+    border: 1px solid #eaeaea;
+    font-size: 18px;
+}
+
+    .order-table > .header-style {
+        display: flex;
+        padding: 8px 12px;
+        background-color: #eaeaea;
+        font-weight: 600;
+    }
+
+    .order-table > .header-style > div {
+        width: 14%;
+    }
+
+.order-table-address {
+    width: 16% !important;
+}
+
+.order-table > .row-style {
+    display: flex;
+    padding: 8px 12px;
+    border-bottom: 1px solid #eaeaea;
+}
+
+    .order-table > .row-style > div {
+        width: 15%;
+    }
+
+.order-number {
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.order-details {
+    border: 1px solid #eaeaea;
+    font-size: 18px;
+    margin: 4%;
+    padding: 8px 12px;
+}
+
+.order-button {
+    font-size: 16px !important;
+    padding: 8px 16px !important;
+}
+
+.order-name-width {
+    width: 10%;
+    padding-top: 7px;
+}
+
+.order-status-label-width {
+    width: 6%;
+    padding-top: 7px;
+}
+
+.order-status-select-width {
+    width: 9%;
+}
+
+.order-status-select-width > select {
+    padding: 8px 15px !important;
+}
+
+.products-block {
+    margin-top: 32px;
+}
+
+.products-total-cost {
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.products-total-cost > div {
+    width: 10%;
+}
+
+.total-cost-value {
+    font-size: 22px;
+    margin-top: -3px;
+}
+
+.plus-style {
+    color: #22ef22;
+    font-size: 22px;
+    font-weight: 600;
+    margin-left: 12px;
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.number-cart {
+    font-size: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+
+.cart-total-cost-label {
+    font-weight: 600;
+    width: 6%;
+    padding-top: 3px;
+}
+
+.product-name {
+    width: 10%;
+    padding-top: 2px;
+}
+
+.handler-block {
+    width: 8%;
+}
+
+.delete-button {
+    color: red;
+    font-weight: 600;
+    padding-top: 3px;
+    cursor: pointer;
+}
+
+.product-row {
+    padding-bottom: 8px;
+    padding-top: 8px;
+}

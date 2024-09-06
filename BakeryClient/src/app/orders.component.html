@@ -1,0 +1,70 @@
+<div class="order-title">Замовлення</div>
+
+<div class="order-table">
+    <div class="header-style">
+        <div>Номер</div>
+        <div>Дата</div>
+        <div>Статус</div>
+        <div>Вартість</div>
+        <div>Замовник</div>
+        <div>Телефон</div>
+        <div class="order-table-address">Адреса</div>
+    </div>
+    <ng-container *ngFor="let order of orders">
+        <div class="row-style">
+            <div class="order-number" (click)="GetOrderForDetail(order.id)">{{order.id}}</div>
+            <div>{{order.orderDate | date:'dd.MM.yyyy'}}</div>
+            <div>{{order.statusName}}</div>
+            <div>{{order.totalCost}} грн</div>
+            <div>{{order.customerName}}</div>
+            <div>{{order.customerPhone}}</div>
+            <div class="order-table-address">{{order.customerDeliveryAddress}}</div>
+        </div>
+    </ng-container>
+</div>
+
+<div class="order-details" *ngIf="showDetailOrder">
+    <div class="just-flex">
+        <div class="order-name-width"><b>Номер замовлення</b></div>
+        <div class="order-name-width">{{orderForDetail.id}}</div>
+        <div class="order-status-label-width"><b>Статус</b></div>
+        <div class="order-status-select-width">
+            <select class="status-form-select" [(ngModel)]="orderForDetail.statusId">
+                <option value="1">Створений</option>
+                <option value="2">Прийнятий</option>
+                <option value="3">Готується</option>
+                <option value="4">Пакується</option>
+                <option value="5">Доставляється</option>
+                <option value="6">Виконаний</option>
+            </select>
+        </div>
+        <div>
+            <button class="order-button" (click)="ChangeOrderStatus(orderForDetail.id)">Змінити</button>
+        </div>
+    </div>
+
+    <div class="products-block">
+        <div class="just-flex products-total-cost">
+            <div>Загальна вартість:</div>
+            <div class="total-cost-value">{{totalCost}} грн</div>
+        </div>
+        <ng-container *ngFor="let item of orderForDetail.orderItems">
+            <div class="just-flex product-row">
+                <div class="product-name">{{item.productName}}</div>
+                <div class="just-flex handler-block">
+                    <div class="plus-style" (click)="ChangeCartItemQuality(item, false)">-</div>
+                    <div class="number-cart">{{item.quantity}}</div>
+                    <div class="plus-style" (click)="ChangeCartItemQuality(item, true)">+</div>
+                </div>
+                <div class="cart-total-cost-label">{{item.productCost * item.quantity}} грн</div>
+                <div class="delete-button" (click)="DeleteCartItem(item.productId)">Х</div>
+            </div>
+        </ng-container>
+        <div class="just-flex" style="margin-top: 16px;">
+            <button class="order-button" style="margin-right: 32px;" [disabled]="orderForDetail.orderItems.length == 0" (click)="EditCartItems(orderForDetail.id)">Зберегти</button>
+            <button class="order-button" style="background-color: red; color: white" (click)="DeleteOrder(orderForDetail.id)">Видалити</button>
+        </div>
+    </div>
+</div>
+
+<snack-bar [model]="snackBarModel"></snack-bar>

@@ -1,0 +1,147 @@
+.product-title {
+    color: darkblue;
+    text-align: center;
+    margin-top: 56px;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+.just-flex {
+    display: flex;
+}
+
+._hide {
+    display: hide !important;
+}
+
+.products-container > div {
+    width: 46%;
+    margin: 2%;
+    border: 1px solid #eaeaea;
+    padding: 20px;
+    font-size: 18px;
+}
+
+.product-label {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.product-item {
+    width: 100%;
+    margin-top: 28px;
+    padding: 12px 24px;
+}
+
+.product-info {
+    width: 70%;
+}
+
+.product-price {
+    width: 30%;
+}
+
+    .product-info > .name {
+        font-size: 24px;
+        font-weight: 600;
+        margin-bottom: 8px;
+    }
+
+    .product-info > .category {
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+
+    .product-info > .description {
+        font-size: 18px;
+        color: #8f8f8f;
+        font-style: italic;
+    }
+
+.product-price > .amount {
+    font-size: 24px;
+    font-weight: 600;
+    color: #0b0be7;
+    margin-bottom: 8px;
+}
+
+.product-price > .to-cart {
+    font-size: 18px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.product-price > .no-available {
+    color: #BDBDBD;
+}
+
+.cart-name {
+    width: 60%;
+}
+
+.cart-handler {
+    width: 40%;
+}
+
+.plus-style {
+    color: #22ef22;
+    font-size: 26px;
+    font-weight: 600;
+    margin-left: 12px;
+    margin-right: 12px;
+    cursor: pointer;
+}
+
+.number-cart {
+    font-size: 24px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+
+.cart-total-cost-label {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.cart-total-cost {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.customer-form-label {
+    width: 22%;
+    padding-top: 5px;
+}
+
+.customer-form {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.customer-form > form > div {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.customer-form-input {
+    padding: 8px 15px !important;
+}
+
+.products-button {
+    font-size: 16px !important;
+    padding: 8px 16px !important;
+}
+
+.delete-item {
+    color: red;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.required-style {
+    color: red;
+    padding-top: 5px;
+    padding-left: 10px;
+}

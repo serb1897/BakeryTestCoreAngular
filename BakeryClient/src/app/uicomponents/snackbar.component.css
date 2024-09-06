@@ -1,0 +1,24 @@
+.snack-bar {
+    position: absolute;
+    right: 10px;
+    bottom: 0%;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 8px 16px;
+    margin-bottom: 16px;
+    border-radius: 5px;
+    max-width: 350px;
+}
+
+.no-snack-bar-offset {
+    bottom: 0% !important;
+}
+
+.snack-bar-success {
+    background-color: #24a924;
+}
+
+.snack-bar-error {
+    background-color: #ff0000;
+}

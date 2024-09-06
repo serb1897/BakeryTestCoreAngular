@@ -1,0 +1,3 @@
+<div id="snack-bar" *ngIf="showSnackBar" class="snack-bar" [ngClass]="{'snack-bar-success': !model.isError, 'snack-bar-error': model.isError, 'no-snack-bar-offset': model.noOffset}">
+    {{model.message}}
+</div>
